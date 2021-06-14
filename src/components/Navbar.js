@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = (props) => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-none nav-opaque" >
+        <nav className="navbar navbar-expand-lg navbar-dark bg-opague">
             <div className="container">
                 <Link className="navbar-brand" to="/">BFlow</Link> 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="#navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,27 +18,29 @@ const Navbar = (props) => {
                         <li className="nav-item">
                             <NavLink className="nav-link "  to="/about">About</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/searchState">Search by State</NavLink>
-                        </li>
                     </ul>
                     {
                         props.isAuth 
                         ? <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/journal">Journal</NavLink>
+                            </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link"  to="/profile">Profile</NavLink>
                             </li>
                             <li className="nav-item">
                                 <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>
                             </li>
+
                         </ul>
                         : <ul className="navbar-nav ml-auto"> 
                             <li className="nav-item">
-                                <NavLink className="nav-link"  to="/signup">Create Account</NavLink> 
+                                <NavLink className="nav-link text-warning"  to="/signup">Create Account</NavLink> 
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link"  to="/login">Login</NavLink>
+                                <NavLink className="nav-link text-warning"  to="/login">Login</NavLink>
                             </li>
+
                           </ul>
                     }
                 </div>

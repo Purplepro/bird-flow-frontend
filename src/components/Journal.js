@@ -85,7 +85,7 @@ function Journal(props) {
             </div>
             <div>
               <label htmlFor="location">Location of Bird</label>
-              <input onChange={changeBirdLocation} id="location" name="location" ></input>
+              <input onChange={changeBirdLocation} id="location" name="location"></input>
             </div>
             <button type="submit">Submit</button>
           </form>
