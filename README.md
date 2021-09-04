@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+Bird Flow
+Bird Flow is a bird watching journal and informational site, based and inpsired by sites like eBird and Live Journal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Purpose
+As part of our Software Immersive cohort, a group of 5 was assembled to tackle the requirements of this project each focusing on specific front end and/or backend tasks like CRUD. making the frontend of the site appealing smooth to increase user experience, and saving user data to a database created by our backend team using mongodb and mongoose.
 
-## Available Scripts
+User story 🧐 🤔
+As a user I want to come to a creative looking sight thats easy to navigate
+As a user I want to search a bird by State and name.
+As a user I want to have a journal where I can enter a bird Ive seen and the time Ive seen it.
+As a user I want to update my journal and delete a entry from my journal.
+How was it Built? 👨🏾‍💻👨🏽‍💻👨🏼‍💻👨🏻‍💻👨🏼‍💻
+The boys split up into two teams. The backend created the routes, the database for the user to add a bird that they've seen, as well as putting the time that they've seen it, and the API that gets the data about the birds so once the front end wants to fetch the api the info will be available to them.
 
-In the project directory, you can run:
+We built out the Journal using routes created on the front end as well using Create, Read, Update, Delete with the axios call from the api on the backend.
 
-### `yarn start`
+(Example Below)⬇️
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+const changeNameHandler = (e) => {
+    setUserName(e.target.value);
+    console.log(userName);
+  };
+  const changeJournalHandler = (e) => {
+    setJournalEntry(e.target.value);
+    console.log(journalEntry);
+  };
+  const changeBirdLocation = (e) => {
+    setBirdLocation(e.target.value);
+    console.log(birdLocation);
+  };
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+  const submitHandler = e =>{
+    e.preventDefault()
+    console.log(`Name: ${userName}`)
+    console.log(`Journal Entry: ${journalEntry}`)
+    console.log(`Location: ${birdLocation}`)
+  }
+  useEffect(()=>{
+    const url = `${REACT_APP_SERVER_URL}/api/journals`
+    console.log(localStorage.getItem('jwtToken'))
+    axios.get(url, {
+      headers: {
+        'Authorization': currentUser
+      },
+    })
+    .then(response =>{
+      let newJournals = response.data.journal
+      console.log('New journal array from userState')
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    }).catch(err =>{
+      console.log('ERROR in JOURNAL Fetching data from UseEffect')
+      console.log(err)
+    })
+  }, [])
+Making a few edits to how we did this create route. We were able to complete full crud.
 
-### `yarn build`
+Build Status
+Under development
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Technologies
+HTML
+CSS
+Javascript
+React
+MongoDB and Mongoose as the ODM
+Screenshots
+Homepage
+Homepage Screenshot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Homepage search form
+Homepage search form
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Future Considerations
+List of future additions and considerations here
 
-### `yarn eject`
+Credits
+This project is being worked on by the following extraordinary gentlemen:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Aaron Prince | Github
+Chris Rachal | Github
+Maurice Chevez | Github
+Sebastian Gayle | Github
+Shawn Dunn | Github
