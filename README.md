@@ -78,7 +78,7 @@ Under development
 
 ## Screenshots
 ### Homepage
-![Homepage Screenshot](img/homepage-screenshot.png)
+![Homepage Screenshot](https://github.com/aprin418/bird-flow-frontend/raw/main/img/homepage-screenshot.png)
 ### Homepage search form
 ![Homepage search form](img/homepage-birdsearch.png)
 # Future Considerations
