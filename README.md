@@ -80,7 +80,7 @@ Under development
 ### Homepage
 ![Homepage Screenshot](https://github.com/aprin418/bird-flow-frontend/raw/main/img/homepage-screenshot.png)
 ### Homepage search form
-![Homepage search form](img/homepage-birdsearch.png)
+![Homepage search form](https://github.com/aprin418/bird-flow-frontend/raw/main/img/homepage-birdsearch.png)
 # Future Considerations
 
 
